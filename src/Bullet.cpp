@@ -8,6 +8,15 @@
 
 #include "Bullet.hpp"
 
+Bullet::Bullet()
+{
+    pos = ofVec2f(0, 0);
+    vel = ofVec2f(0, 0);
+    
+    speed = 0;
+    size = 0;
+}
+
 Bullet::Bullet(ofVec2f start, ofVec2f target)
 {
     pos = ofVec2f(start.x, start.y);

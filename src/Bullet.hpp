@@ -16,6 +16,7 @@ class Bullet
 {
     public:
         Bullet(ofVec2f start, ofVec2f target);
+        Bullet();
         ~Bullet();
     
         ofVec2f GetPos();

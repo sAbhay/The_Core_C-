@@ -10,6 +10,7 @@
 #define Node_hpp
 
 #include <stdio.h>
+#include "Bullet.hpp"
 
 class Node
 {
@@ -17,9 +18,17 @@ class Node
         Node();
         ~Node();
     
-        void SetNext(Node* &n);
-        void SetData();
+        void    SetNext(Node* &n);
+        void    SetData(Bullet& b);
+        Node*   GetNext();
+        Bullet& GetData();
+        Bullet  GetCopy();
+        void      operator=(const Node& n);
     
+private:
+    Bullet* _data;
+    Node*     _nextNode;
+
 };
 
 #endif /* Node_hpp */
