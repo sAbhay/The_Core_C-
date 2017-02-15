@@ -8,10 +8,10 @@
 
 #include "Node.hpp"
 
-Node::Node()
+Node::Node(ofVec2f start, ofVec2f target)
 {
     _nextNode = nullptr;
-    _data = new Bullet();
+    _data = new Bullet(start, target);
 }
 
 Node::~Node()

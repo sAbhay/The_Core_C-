@@ -19,12 +19,12 @@ class LinkedList
         LinkedList();
         ~LinkedList();
     
-        void AddBullet();
+        void AddBullet(ofVec2f start, ofVec2f target);
         void Remove(int index);
         void Remove(Bullet& b);
         Bullet& Get(int i);
     
-    int GetLength();
+    int GetLength() { return _length; }
     
     private:
         int _length;

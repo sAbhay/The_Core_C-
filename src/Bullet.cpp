@@ -8,38 +8,25 @@
 
 #include "Bullet.hpp"
 
-Bullet::Bullet()
-{
-    pos = ofVec2f(0, 0);
-    vel = ofVec2f(0, 0);
-    
-    speed = 0;
-    size = 0;
-}
-
 Bullet::Bullet(ofVec2f start, ofVec2f target)
 {
     pos = ofVec2f(start.x, start.y);
-    vel = ofVec2f(target.y, target.y);
+    vel = ofVec2f(target.x, target.y);
     
     vel = vel - pos;
     vel.normalize();
     
-    speed = 20;
+    speed = 10;
     vel *= speed;
-}
-
-Bullet::~Bullet()
-{
-    delete &pos;
-    delete &vel;
-    delete &speed;
-    delete &size;
+    
+    size = 10;
+    colour = ofColor(255);
 }
 
 void Bullet::Draw()
 {
-    ofDrawRectangle(pos, size, size);
+    ofSetColor(colour);
+    ofDrawRectangle(pos.x, pos.y, size, size);
 }
 
 void Bullet::Move()
@@ -49,27 +36,27 @@ void Bullet::Move()
 
 void Bullet::CheckBoundaries()
 {
-    if(pos.x <= 0)
+    if(pos.x <= size/2)
     {
-        pos.x = 0;
+        pos.x = size/2;
         vel.x *= -1;
     }
     
-    if(pos.x >= ofGetWidth())
+    if(pos.x >= ofGetWidth() - size/2)
     {
-        pos.x = ofGetWidth();
+        pos.x = ofGetWidth() - size/2;
         vel.x *= -1;
     }
     
-    if(pos.y <= 0)
+    if(pos.y <= size/2)
     {
-        pos.y = 0;
+        pos.y = size/2;
         vel.y *= -1;
     }
     
-    if(pos.y >= ofGetHeight())
+    if(pos.y >= ofGetHeight() - size/2)
     {
-        pos.y = ofGetHeight();
+        pos.y = ofGetHeight() - size/2;
         vel.y *= -1;
     }
 }

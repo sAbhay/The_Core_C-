@@ -15,7 +15,7 @@
 class Node
 {
     public:
-        Node();
+        Node(ofVec2f start, ofVec2f target);
         ~Node();
     
         void    SetNext(Node* &n);

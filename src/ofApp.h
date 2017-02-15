@@ -1,6 +1,8 @@
 #pragma once
 
 #include "ofMain.h"
+#include "Bullet.hpp"
+#include "LinkedList.hpp"
 
 class ofApp : public ofBaseApp{
 
@@ -23,4 +25,5 @@ class ofApp : public ofBaseApp{
 		
     private:
         LinkedList b;
+        int frame;
 };

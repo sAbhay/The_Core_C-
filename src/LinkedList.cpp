@@ -11,7 +11,7 @@
 LinkedList::LinkedList()
 {
     _length = 1;
-    _firstNode = new Node();
+    _firstNode = new Node(ofVec2f(ofGetWidth()/2, ofGetHeight()/2), ofVec2f(0, 0));
 }
 
 LinkedList::~LinkedList()
@@ -25,7 +25,7 @@ LinkedList::~LinkedList()
     delete _firstNode;
 }
 
-void LinkedList::AddBullet()
+void LinkedList::AddBullet(ofVec2f start, ofVec2f target)
 {
     Node* currentNode = _firstNode;
     
@@ -34,7 +34,7 @@ void LinkedList::AddBullet()
         currentNode = currentNode -> GetNext();
     }
     
-    Node* newNode = new Node();
+    Node* newNode = new Node(start, target);
     currentNode -> SetNext(newNode);
     _length++;
     newNode = 0;
@@ -43,7 +43,7 @@ void LinkedList::AddBullet()
 
 void LinkedList::Remove(int index)
 {
-    assert(index > 0 && index < _length);
+    assert(index >= 0 && index < _length);
     
     Node* currentNode = _firstNode;
     Node* previousNode = _firstNode;
@@ -76,7 +76,7 @@ void LinkedList::Remove(int index)
 
 Bullet& LinkedList::Get(int i)
 {
-    assert(i > 0 && i < _length);
+    assert(i >= 0 && i < _length);
     
     int j = 0;
     Node* n = _firstNode;
