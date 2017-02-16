@@ -16,10 +16,12 @@ class Bullet
 {
     public:
         Bullet(ofVec2f start, ofVec2f target);
+        ~Bullet();
     
-        ofVec2f GetPos();
+        ofVec2f GetPos() { return pos; }
+        float GetSize() { return size; }
+    
         void Update();
-    
     
     private:
         ofVec2f pos;

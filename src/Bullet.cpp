@@ -19,14 +19,19 @@ Bullet::Bullet(ofVec2f start, ofVec2f target)
     speed = 10;
     vel *= speed;
     
-    size = 10;
+    size = 5;
     colour = ofColor(255);
+}
+
+Bullet::~Bullet()
+{
+    
 }
 
 void Bullet::Draw()
 {
     ofSetColor(colour);
-    ofDrawRectangle(pos.x, pos.y, size, size);
+    ofDrawCircle(pos.x, pos.y, size);
 }
 
 void Bullet::Move()

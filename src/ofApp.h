@@ -3,9 +3,10 @@
 #include "ofMain.h"
 #include "Bullet.hpp"
 #include "LinkedList.hpp"
+#include "Player.hpp"
 
-class ofApp : public ofBaseApp{
-
+class ofApp : public ofBaseApp
+{
 	public:
 		void setup();
 		void update();
@@ -26,4 +27,5 @@ class ofApp : public ofBaseApp{
     private:
         LinkedList b;
         int frame;
+        Player player;
 };
