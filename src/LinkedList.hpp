@@ -16,7 +16,7 @@
 class LinkedList
 {
     public:
-        LinkedList();
+        LinkedList(ofVec2f start, ofVec2f target);
         ~LinkedList();
     
         void AddBullet(ofVec2f start, ofVec2f target);

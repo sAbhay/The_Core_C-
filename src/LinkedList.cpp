@@ -8,10 +8,10 @@
 
 #include "LinkedList.hpp"
 
-LinkedList::LinkedList()
+LinkedList::LinkedList(ofVec2f start, ofVec2f target)
 {
     _length = 1;
-    _firstNode = new Node(ofVec2f(ofGetWidth()/2, ofGetHeight()/2), ofVec2f(0, 0));
+    _firstNode = new Node(start, target);
 }
 
 LinkedList::~LinkedList()
