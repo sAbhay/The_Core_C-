@@ -74,6 +74,11 @@ void LinkedList::Remove(int index)
     }
 }
 
+void LinkedList::Remove(Bullet &b)
+{
+    
+}
+
 Bullet& LinkedList::Get(int i)
 {
     assert(i >= 0 && i < _length);
@@ -90,5 +95,13 @@ Bullet& LinkedList::Get(int i)
         
         n = n -> GetNext();
         j++;
+    }
+}
+
+void LinkedList::Clear()
+{
+    for(int i = 1; i < _length; i++)
+    {
+        Remove(i);
     }
 }

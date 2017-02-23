@@ -23,6 +23,7 @@ class LinkedList
         void Remove(int index);
         void Remove(Bullet& b);
         Bullet& Get(int i);
+        void Clear();
     
     int GetLength() { return _length; }
     

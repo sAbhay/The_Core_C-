@@ -1,14 +1,13 @@
 #include "ofApp.h"
 
-int colorMode;
-
 //--------------------------------------------------------------
 void ofApp::setup()
 {
-    frame = 0;
+    frame = 1.5 * ofGetFrameRate();
+    count = 0;
     player = Player();
     
-    colorMode = (int) rand() % 6;
+    colourMode = (int) rand() % 6;
 }
 
 //--------------------------------------------------------------
@@ -17,12 +16,16 @@ void ofApp::draw()
     ofBackground(0);
 
     frame++;
+    if(!player.IsDead()) count++;
     
     if(frame >= 1.5*ofGetFrameRate())
     {
-        b.AddBullet(ofVec2f(ofGetWidth()/2, ofGetHeight()/2), ofVec2f(mouseX, mouseY));
+        if(!player.IsDead()) b.AddBullet(ofVec2f(ofGetWidth()/2, ofGetHeight()/2), ofVec2f(mouseX, mouseY));
         frame = 0;
     }
+    
+//    StringSize();
+    ofDrawBitmapString((int) (count/ofGetFrameRate()), ofGetWidth()/1.1, ofGetHeight()/10);
     
     for(int i = 0; i < b.GetLength(); i++)
     {
@@ -55,7 +58,7 @@ void ofApp::draw()
             }
         }
         
-        switch(colorMode)
+        switch(colourMode)
         {
             case 0: ofSetColor(0.0f , 255.0f, p[0].x/ofGetWidth() * 255.0f, 25.0f);
             break;
@@ -94,9 +97,18 @@ void ofApp::mousePressed(int x, int y, int button)
     {
         player.SetDead(false);
         
-//        for(int i = 0; i < b.GetLength(); i++)
-//        {
-//            b.Remove(i);
-//        }
+        colourMode = (int) rand() % 6;
+        
+//        b.Clear();
+
+        b.Remove(1);
+    }
+}
+
+void ofApp::keyPressed(int key)
+{
+    if(key == 'r')
+    {
+        colourMode = (int) rand() % 6;
     }
 }
