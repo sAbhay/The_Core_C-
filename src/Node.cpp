@@ -37,12 +37,8 @@ Bullet Node::GetCopy()
 }
 
 void Node::SetNext(Node* &n)
-{
-    if(!_nextNode)
-    {
-        _nextNode = n;
-        return;
-    }
+{    _nextNode = n;
+    return;
 }
 
 void Node::SetData(Bullet& b)

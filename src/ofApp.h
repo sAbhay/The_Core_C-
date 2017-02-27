@@ -11,7 +11,7 @@ class ofApp : public ofBaseApp
 		void setup();
 		void draw();
 		void mousePressed(int x, int y, int button);
-        void keyPressed(int key);
+        void reset();
 		
     private:
         LinkedList b = LinkedList(ofVec2f(ofGetWidth()/2, ofGetHeight()/2), ofVec2f(mouseX, mouseY));

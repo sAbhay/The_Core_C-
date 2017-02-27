@@ -21,7 +21,6 @@ class LinkedList
     
         void AddBullet(ofVec2f start, ofVec2f target);
         void Remove(int index);
-        void Remove(Bullet& b);
         Bullet& Get(int i);
         void Clear();
     

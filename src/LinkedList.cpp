@@ -54,6 +54,13 @@ void LinkedList::Remove(int index)
         {
             if(i == 0)
             {
+                if(_firstNode -> GetNext())
+                {
+                  Node* garbage = _firstNode;
+                  _firstNode = _firstNode -> GetNext();
+                  delete garbage;
+                }
+                
                 Node* garbage = _firstNode;
                 _firstNode = NULL;
                 delete garbage;
@@ -72,11 +79,6 @@ void LinkedList::Remove(int index)
         currentNode = currentNode -> GetNext();
         i++;
     }
-}
-
-void LinkedList::Remove(Bullet &b)
-{
-    
 }
 
 Bullet& LinkedList::Get(int i)
@@ -100,8 +102,11 @@ Bullet& LinkedList::Get(int i)
 
 void LinkedList::Clear()
 {
-    for(int i = 1; i < _length; i++)
+    int maxLength = _length-1;
+    
+    for(int i = maxLength; i > 0; i--)
     {
         Remove(i);
     }
+
 }

@@ -21,10 +21,12 @@ void ofApp::draw()
     if(frame >= 1.5*ofGetFrameRate())
     {
         if(!player.IsDead()) b.AddBullet(ofVec2f(ofGetWidth()/2, ofGetHeight()/2), ofVec2f(mouseX, mouseY));
+        
+        if(b.GetLength() == 2) b.Remove(0);
+        
         frame = 0;
     }
     
-//    StringSize();
     ofDrawBitmapString((int) (count/ofGetFrameRate()), ofGetWidth()/1.1, ofGetHeight()/10);
     
     for(int i = 0; i < b.GetLength(); i++)
@@ -90,24 +92,24 @@ void ofApp::draw()
     }
 }
 
+void ofApp::reset()
+{
+    player.SetDead(false);
+    
+    b.Clear();
+    
+    colourMode = (int) rand() % 6;
+}
+
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button)
 {
     if(button == 0)
     {
-        player.SetDead(false);
-        
-        colourMode = (int) rand() % 6;
-        
-//        b.Clear();
-
-        b.Remove(1);
+        reset();
     }
-}
-
-void ofApp::keyPressed(int key)
-{
-    if(key == 'r')
+    
+    else if(button == 2)
     {
         colourMode = (int) rand() % 6;
     }
