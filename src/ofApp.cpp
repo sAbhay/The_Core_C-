@@ -22,8 +22,6 @@ void ofApp::draw()
     {
         if(!player.IsDead()) b.AddBullet(ofVec2f(ofGetWidth()/2, ofGetHeight()/2), ofVec2f(mouseX, mouseY));
         
-        if(b.GetLength() == 2) b.Remove(0);
-        
         frame = 0;
     }
     
@@ -99,6 +97,8 @@ void ofApp::reset()
     b.Clear();
     
     colourMode = (int) rand() % 6;
+    
+    count = 0;
 }
 
 //--------------------------------------------------------------

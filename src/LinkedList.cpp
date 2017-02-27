@@ -11,7 +11,7 @@
 LinkedList::LinkedList(ofVec2f start, ofVec2f target)
 {
     _length = 1;
-    _firstNode = new Node(start, target);
+    _firstNode = new Node(start, start);
 }
 
 LinkedList::~LinkedList()
@@ -60,10 +60,6 @@ void LinkedList::Remove(int index)
                   _firstNode = _firstNode -> GetNext();
                   delete garbage;
                 }
-                
-                Node* garbage = _firstNode;
-                _firstNode = NULL;
-                delete garbage;
             }
             else
             {
@@ -102,9 +98,7 @@ Bullet& LinkedList::Get(int i)
 
 void LinkedList::Clear()
 {
-    int maxLength = _length-1;
-    
-    for(int i = maxLength; i > 0; i--)
+    for(int i = _length-1; i > 0; i--)
     {
         Remove(i);
     }

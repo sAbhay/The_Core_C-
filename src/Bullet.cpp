@@ -20,6 +20,12 @@ Bullet::Bullet(ofVec2f start, ofVec2f target)
     vel *= speed;
     
     size = 5;
+    
+    if(vel == ofVec2f(0, 0))
+    {
+        size = 20;
+    }
+    
     colour = ofColor(255);
 }
 
